@@ -5,43 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The web site of kavelin</title>
     <link href="/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <div class="bg"></div>
     <div class="main">
-      <div class=bar> 
-          <h1><a href="/">kavelin</a></h1>
-          <div class=left>
-            <a href="/dump">dump</a>
-            <a href="/socials">socials</a>
-          </div>
+      <div class="bar">
+        <h1><a href="/">kavelin</a></h1>
+        <div class="left">
+          <a href="/extra">extra</a>
+          <a href="/socials">socials</a>
+        </div>
       </div>
 
-      <a
-        target="_blank"
-        rel="nofollow ugc"
-        referrerpolicy="strict-origin-when-cross-origin"
-        href="https://kavelin.bandcamp.com"
-        >Bandcamp</a
-      >
-      <br /><br />
-
-      <a
-        target="_blank"
-        rel="nofollow ugc"
-        referrerpolicy="strict-origin-when-cross-origin"
-        href="https://soundcloud.com/kavelin"
-        >SoundCloud</a
-      >
-      <br /><br />
-
-      <a
-        target="_blank"
-        rel="nofollow ugc"
-        referrerpolicy="strict-origin-when-cross-origin"
-        href="https://discord.gg/cC9DPBvUrm"
-        >Discord Server</a
-      >
-      <br /><br />
+      <div class="socials-container">
+        <div class="social-card">
+          <a target="_blank" href="https://kavelin.bandcamp.com">
+            <i class="fab fa-bandcamp"></i>
+            <span>Bandcamp</span>
+          </a>
+        </div>
+        <div class="social-card">
+          <a target="_blank" href="https://soundcloud.com/kavelin">
+            <i class="fab fa-soundcloud"></i>
+            <span>SoundCloud</span>
+          </a>
+        </div>
+        <div class="social-card">
+          <a target="_blank" href="https://github.com/kavelin">
+            <i class="fab fa-github"></i>
+            <span>Github</span>
+          </a>
+        </div>
+        
+        <div class="social-card">
+          <a target="_blank" href="https://www.youtube.com/@midairduck">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+        </div>
+        <div class="social-card">
+          <a target="_blank" href="https://www.linkedin.com/in/kavin-velmurugan-177968246/">
+            <i class="fab fa-linkedin-in"></i>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <div class="social-card">
+          <a target="_blank" href="https://discord.gg/cC9DPBvUrm">
+            <i class="fab fa-discord"></i>
+            <span>Discord Server</span>
+          </a>
+        </div>
+      </div>
     </div>
+
+    <script src="/js/main.js"></script>
   </body>
 </html>

@@ -1,76 +1,96 @@
-
 body {
-
-  background:#deb28c;
-  background: url(media/bg.gif) #debfa2;
-  background-blend-mode: hue;
+  background: #deb28c;
   color: black;
   font-family: serif;
-  height:100vh;
-  overflow:hidden;
-  display:flex;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
   justify-content: center;
-  width:100vw;
-  padding:0;
-  margin:0;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  cursor: crosshair;
 }
-body::after {
-  color:#9d7b92;
-  position:fixed;
-  word-spacing:1vw;
-  z-index:-3;
+.bg {
+  content: " ";
+  position: fixed;
+  z-index: -100;
+  width: 100%;
+  height: 200%;
+  background: url(media/bg.gif) #debfa2;
+  background-blend-mode: hue;
+  /*animation: backdrop 15s infinite linear;*/
+}
+@keyframes backdrop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-128px);
+  }
 }
 .main {
-  box-shadow:#222 0px 0px 0px 2px;
-  justify-content:center;
-  padding:16px;
-  width:80vw;
-  background:white;
-  overflow-y:scroll;
+  box-shadow: #222 0px 0px 0px 2px;
+  justify-content: center;
+  padding: 16px;
+  width: 80vw;
+  background: white;
+  overflow-y: scroll;
+  cursor: default;
 }
 @media (min-width: 576px) {
   .main {
-    width:80vw;
+    width: 80vw;
   }
 }
 
 @media (min-width: 768px) {
   .main {
-    width:70vw;
+    width: 70vw;
   }
   .projects {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .socials-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 @media (min-width: 992px) {
   .main {
-    width:50vw;
+    width: 50vw;
   }
   .projects {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .socials-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 .bar {
-  display:flex;
-  justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .left {
-  align-self: center;  
+  align-self: center;
 }
 
 a {
-  color:#222;
-  padding:8px;
+  color: #222;
+  padding: 8px;
 }
 a:hover {
-  color:#444;
+  color: #444;
+}
+
+h3 {
+  font-family:monospace;
 }
 
 .projects {
-    display:grid;
+  display: grid;
 }
 
 .projects figure {
@@ -79,10 +99,49 @@ a:hover {
 }
 
 .projects img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .projects figcaption {
-  font: italic sans-serif;
   text-align: center;
+}
+
+.projects figcaption a {
+  cursor: alias;
+}
+
+.projects figcaption a::after {
+  content: "↗";
+}
+
+.socials-container {
+  display: grid;
+  gap: 2vw 2vw;
+}
+
+.social-card {
+  align-items: center;
+  box-shadow: #222 0px 0px 0px 2px;
+    padding: 1vw 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+  box-shadow: #222 0 0px 0px 2px;
+}
+
+.social-card a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  display: flex;
+  gap:1vw;
+  align-items: center;
+  text-overflow: ellipsis;
+}
+
+.social-card i {
+  font-size: 24px;
+  color: #555;
 }
