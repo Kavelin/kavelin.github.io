@@ -1,12 +1,11 @@
 name: Deploy to neocities
 
-# only run on changes to main. Use main or master depending on whatever your default branch is called.
 on:
   push:
     branches:
       - main
 
-concurrency: # prevent concurrent deploys doing strange things
+concurrency:
   group: deploy-to-neocities
   cancel-in-progress: true
 
@@ -22,8 +21,8 @@ jobs:
     - name: Deploy to neocities
       uses: bcomnes/deploy-to-neocities@v3
       with:
-        api_key: 8b49cfa258f5436998a5527f882f2b21
+        api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
         cleanup: false
-        neocities_supporter: false # set this to true if you have a supporter account and want to bypass unsuported files filter.
-        preview_before_deploy: true # print a deployment plan prior to waiting for files to upload.
+        neocities_supporter: false 
+        preview_before_deploy: true
         dist_dir: public
