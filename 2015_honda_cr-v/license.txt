@@ -1,0 +1,11 @@
+Model Information:
+* title:	2015 Honda CR-V
+* source:	https://sketchfab.com/3d-models/2015-honda-cr-v-8d478eeb3681481596a32126c3ac6906
+* author:	ImperialBlue (https://sketchfab.com/efemetin)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "2015 Honda CR-V" (https://sketchfab.com/3d-models/2015-honda-cr-v-8d478eeb3681481596a32126c3ac6906) by ImperialBlue (https://sketchfab.com/efemetin) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

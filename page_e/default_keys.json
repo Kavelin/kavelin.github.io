@@ -1,0 +1,17 @@
+{
+    "kavelin":{
+        "coding": {
+            "content": "hello",
+            "github": "https://github.com/Kavelin/"
+        },
+        "about_me": {
+            "content": "hihi"
+        },
+        "page": {
+            "primary": "#debfa2"
+        }
+
+    }
+
+
+}
