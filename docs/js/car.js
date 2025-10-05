@@ -152,6 +152,10 @@ scene.add(car);
 camera.position.z = 7;
 function animate() {
   renderer.render(scene, camera);
+
+  renderer.setSize(
+    document.querySelector(".main").clientWidth - 40,
+    ((document.querySelector(".main").clientWidth - 40) * 1.5) / 4
+  );
 }
 renderer.setAnimationLoop(animate);
-
