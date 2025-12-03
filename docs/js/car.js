@@ -1,3 +1,5 @@
+//i know this is messy LOL
+
 const renderer = new THREE.WebGLRenderer({
   alpha: true,
   antialiasing: false,
@@ -97,7 +99,7 @@ textLoader.load(
   }
 );
 
-textLoader.load(
+/*textLoader.load(
   "media/stickers/machine.png",
   function (texture) {
     const geometry = new THREE.PlaneGeometry(0.162, 0.087);
@@ -117,7 +119,7 @@ textLoader.load(
     console.error("An error occurred loading the texture:", err);
   }
 );
-
+*/
 textLoader.load(
   "media/stickers/xbox360.png",
   function (texture) {
