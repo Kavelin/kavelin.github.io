@@ -6,15 +6,15 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(
   document.querySelector(".main").clientWidth - 40,
-  ((document.querySelector(".main").clientWidth - 40) * 1.5) / 4
+  ((document.querySelector(".main").clientWidth - 40) * 3) / 4
 );
-document.querySelector(".main").appendChild(renderer.domElement);
+document.querySelector("#garage").appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 const modelLoader = new THREE.GLTFLoader();
 const textLoader = new THREE.TextureLoader();
 let car = new THREE.Group();
 modelLoader.load(
-  "media/2015_honda_cr-v/scene.gltf",
+  "../media/2015_honda_cr-v/scene.gltf",
   (gltf) => {
     car.add(gltf.scene);
   },
@@ -22,7 +22,7 @@ modelLoader.load(
   (error) => console.error("An error happened", error)
 );
 textLoader.load(
-  "media/stickers/driving-scare.png",
+  "../media/stickers/driving-scare.png",
   function (texture) {
     const geometry = new THREE.PlaneGeometry(0.16, 0.08);
     const material = new THREE.MeshBasicMaterial({ map: texture });
@@ -38,7 +38,7 @@ textLoader.load(
   }
 );
 textLoader.load(
-  "media/stickers/Raspberry_Pi_Logo.png",
+  "../media/stickers/Raspberry_Pi_Logo.png",
   function (texture) {
     const geometry = new THREE.PlaneGeometry(0.08, 0.1);
     const material = new THREE.MeshBasicMaterial({
@@ -58,7 +58,7 @@ textLoader.load(
   }
 );
 textLoader.load(
-  "media/stickers/262.png",
+  "../media/stickers/262.png",
   function (texture) {
     const geometry = new THREE.PlaneGeometry(0.12, 0.09);
     const material = new THREE.MeshBasicMaterial({
@@ -79,7 +79,7 @@ textLoader.load(
 );
 
 textLoader.load(
-  "media/stickers/cowgirl.png",
+  "../media/stickers/cowgirl.png",
   function (texture) {
     const geometry = new THREE.PlaneGeometry(0.145, 0.071);
     const material = new THREE.MeshBasicMaterial({
@@ -99,8 +99,8 @@ textLoader.load(
   }
 );
 
-/*textLoader.load(
-  "media/stickers/machine.png",
+textLoader.load(
+  "../media/stickers/machine.png",
   function (texture) {
     const geometry = new THREE.PlaneGeometry(0.162, 0.087);
     const material = new THREE.MeshBasicMaterial({
@@ -119,9 +119,8 @@ textLoader.load(
     console.error("An error occurred loading the texture:", err);
   }
 );
-*/
 textLoader.load(
-  "media/stickers/xbox360.png",
+  "../media/stickers/xbox360.png",
   function (texture) {
     const geometry = new THREE.PlaneGeometry(0.12, 0.06);
     const material = new THREE.MeshBasicMaterial({

@@ -4,10 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kavelin: extra edition</title>
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
     <link href="/style.css" rel="stylesheet" type="text/css" media="all" />
+    <style>
+      .main {
+        position: relative;
+        height: 80vw;
+        width: 80vw;
+        overflow-y:hidden;
+      }
+      @media (min-width: 576px) {
+        .main {
+          height: 80vh;
+          width: 80vh;
+        }
+      }
+      .garage-door {
+        position: absolute;
+        display: grid;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        cursor: grab;
+        z-index: 21;
+      }
+      .garage-door img {
+        width: 100%;
+      }
+      .bar {
+        position: relative;
+        z-index: 20;
+      }
+    </style>
   </head>
   <body>
     <div class="bg"></div>
@@ -20,6 +49,10 @@
         </div>
       </div>
 
+      <div class="garage-door"></div>
+
+
+      <div id="garage"></div>
       <pre
         style="
           white-space: pre-wrap;
@@ -98,10 +131,66 @@ Extra! Extra! Read all about it!</pre
       <audio
         controls
         src="https://github.com/Kavelin/kavelin.github.io/raw/refs/heads/main/docs/media/audio/superfireriver.mp3"
-      />
+      ></audio>
       <br />
     </div>
 
-    <script src="/js/main.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js"
+      integrity="sha512-n8IpKWzDnBOcBhRlHirMZOUvEq2bLRMuJGjuVqbzUJwtTsgwOgK5aS0c1JA647XWYfqvXve8k3PtZdzpipFjgg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+      for (let i = 0; i < 6; i++) {
+        document.querySelector(".garage-door").innerHTML +=
+          `<img draggable="false" src="/media/garagerow.png"/>`;
+      }
+
+      let selection = { x: 0, y: 0, down: false };
+      let garageOffset = 0;
+      document
+        .querySelector(".garage-door")
+        .addEventListener("mousedown", (e) => {
+          selection = { x: e.clientX, y: e.clientY, down: true };
+          e.target.style.cursor = "grabbing";
+        });
+      document
+        .querySelector(".garage-door")
+        .addEventListener("mousemove", (e) => {
+          if (selection.down) {
+            garageOffset += (e.clientY - selection.y) / 50;
+            if (garageOffset > 0) garageOffset = 0;
+            let hidden = 0;
+            document.querySelectorAll(".garage-door img").forEach((e, i) => {
+              if (-garageOffset > (i + 1) * e.clientHeight) {
+                e.style.visibility = "hidden";
+                hidden++;
+              } else if (-garageOffset > i * e.clientHeight) {
+                e.style.transform = `rotateX(${i * e.clientHeight + garageOffset}deg) translateY(${garageOffset}px)`;
+                e.style.transformOrigin = `0 -${i * e.clientHeight}px`;
+              } else {
+                e.style.transform = `translateY(${garageOffset}px)`;
+              }
+            });
+            if (hidden == 6) {
+              document.querySelector(".garage-door").style.display = "none";
+              const main = document.querySelector(".main");
+              main.style.overflowY = "scroll";
+              main.style.height = "auto";
+              main.style.width = "auto";
+            }
+          }
+        });
+      document
+        .querySelector(".garage-door")
+        .addEventListener("mouseup", (e) => {
+          selection = { x: 0, y: 0, down: false };
+          e.target.parentElement.style.cursor = "grab";
+        });
+    </script>
+    <script src="../js/car.js"></script>
   </body>
 </html>
